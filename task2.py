@@ -21,7 +21,12 @@
 """
 
 def min_value(lst):
-    return min(lst)
+    min_v = lst[0]
+    for i in lst:
+        if i in lst[:]:
+            if i < min_v:
+                min_v = i
+    return min_v
 
 print(min_value([1, 2, 3, 4, 0]))
 
@@ -33,5 +38,3 @@ def min_value_two(lst):
     return min_v
 
 print(min_value_two([2, 3, 4]))
-import sys
-print(sys.getrecursionlimit())
