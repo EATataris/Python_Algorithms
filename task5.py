@@ -30,7 +30,7 @@ class MyExeption(Exception):
         self.txt = txt
 
 
-class StackClass:
+class PlatesStack:
     def __init__(self, size):
         self.elems = []
         self.size = size
@@ -60,10 +60,11 @@ class StackClass:
         return self.elems
 
 
-plates1 = StackClass(3)
+plates1 = PlatesStack(3)
 plates1.push_in('plate')
 plates1.push_in('plate')
 plates1.push_in('plate')
-plates2 = StackClass(4)
+# plates1.push_in('plate') - выдаст ошибку
+plates2 = PlatesStack(4)
 plates2.push_in('plate')
 plates2.push_in('plate')
