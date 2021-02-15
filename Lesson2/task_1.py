@@ -29,25 +29,37 @@
 Введите операцию (+, -, *, / или 0 для выхода):
 """
 
+
 def calculator():
     operation = input('Веедите оеперацию +, -, *, / или 0 для выхода: ')
     if operation == '0':
         return print('Програма завершена')
+    elif operation not in ['0', '+', '-', '*', '/']:
+        return print('Введите корректную операцию'), calculator()
     else:
-        res = 0
-        first_digit = float(input('Введите первое число: '))
-        second_digit = float(input('Введите второе число: '))
-        if operation == '+':
-            res = first_digit + second_digit
-            return print(res), calculator()
-        elif operation == '-':
-            res = first_digit - second_digit
-            return print(res), calculator()
-        elif operation == '*':
-            res = first_digit * second_digit
-            return print(res), calculator()
-        elif operation == '/':
-            res = first_digit / second_digit
-            return print(res), calculator()
+        try:
+            res = 0
+            first_digit = float(input('Введите первое число: '))
+            second_digit = float(input('Введите второе число: '))
+            if operation == '+':
+                res = first_digit + second_digit
+                return print(res), calculator()
+            elif operation == '-':
+                res = first_digit - second_digit
+                return print(res), calculator()
+            elif operation == '*':
+                res = first_digit * second_digit
+                return print(res), calculator()
+            elif operation == '/':
+                try:
+                    res = first_digit / second_digit
+                    return print(res), calculator()
+                except ZeroDivisionError:
+                    print('На ноль делить нельзя! Введите корректные данные.')
+                    calculator()
+        except ValueError:
+            print('Введите ТОЛЬКО число!')
+            calculator()
+
 
 calculator()
