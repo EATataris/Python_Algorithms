@@ -19,7 +19,7 @@
 Алгоритмизатор должен развивать мышление, а это прежде всего практика.
 А без столкновения со сложностями его не развить.
 """
-
+#Сложность О(n^2)
 def min_value(lst):
     min_v = lst[0]
     for i in lst:
@@ -30,6 +30,7 @@ def min_value(lst):
 
 print(min_value([1, 2, 3, 4, 0]))
 
+#Сложность О(n)
 def min_value_two(lst):
     min_v = lst[0]
     for i in lst:
@@ -38,3 +39,4 @@ def min_value_two(lst):
     return min_v
 
 print(min_value_two([2, 3, 4]))
+#Вывод: второй алгоритм более предпочиттельный
