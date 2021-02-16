@@ -34,8 +34,9 @@ def calculator():
     operation = input('Веедите оеперацию +, -, *, / или 0 для выхода: ')
     if operation == '0':
         return print('Програма завершена')
-    elif operation not in ['0', '+', '-', '*', '/']:
-        return print('Введите корректную операцию'), calculator()
+    elif operation not in '0+-*/':
+        print('Введите корректную операцию')
+        return calculator()
     else:
         try:
             res = 0
@@ -43,23 +44,27 @@ def calculator():
             second_digit = float(input('Введите второе число: '))
             if operation == '+':
                 res = first_digit + second_digit
-                return print(res), calculator()
+                print(res)
+                return calculator()
             elif operation == '-':
                 res = first_digit - second_digit
-                return print(res), calculator()
+                print(res)
+                return calculator()
             elif operation == '*':
                 res = first_digit * second_digit
-                return print(res), calculator()
+                print(res)
+                return calculator()
             elif operation == '/':
                 try:
                     res = first_digit / second_digit
-                    return print(res), calculator()
+                    print(res)
+                    return calculator()
                 except ZeroDivisionError:
                     print('На ноль делить нельзя! Введите корректные данные.')
-                    calculator()
+                return calculator()
         except ValueError:
             print('Введите ТОЛЬКО число!')
-            calculator()
+            return calculator()
 
 
 calculator()
