@@ -53,13 +53,43 @@ def deque_list_pop_left():
     deque_list.popleft()
     return deque_list
 
-x = 100
-print(timeit('list_append(x)', globals=globals(), number=1000))
-print(timeit('deque_list_append(x)', globals=globals(), number=1000))
 
+def list_insert(x):
+    simple_list.insert(0, x)
+    return simple_list
+
+
+def deque_appendleft(x):
+    deque_list.appendleft(x)
+    return deque_list
+
+
+n = 100
+'''
+Аналитика: Методы list.append и deque.append то есть добавление эл-тов в конец списка выполняются с одинаковой скоростью
+как для обычного списка, так и для дека из модуля коллекций
+'''
+print(timeit('list_append(n)', globals=globals(), number=1000))
+print(timeit('deque_list_append(n)', globals=globals(), number=1000), end='\n\n')
+
+'''
+Аналитика: Методы list.pop и deque.pop то есть добавление удаление эл-та с конеца списка выполняются с одинаковой скоростью
+как для обычного списка, так и для дека из модуля коллекций.
+'''
 print(timeit('list_pop()', globals=globals(), number=10000))
-print(timeit('deque_list_pop()', globals=globals(), number=10000))
+print(timeit('deque_list_pop()', globals=globals(), number=10000), end='\n\n')
 
+'''
+Аналитика: в Данном примеер видно, что одиноковые по семантике методы удаления эл-та с начала списка в деке выполняется
+значительно быстрее. Приблизительно в 60 раз!
+'''
 print(timeit('list_remove()', globals=globals(), number=10000))
-print(timeit('deque_list_pop_left()', globals=globals(), number=10000))
+print(timeit('deque_list_pop_left()', globals=globals(), number=10000), end='\n\n')
+
+'''
+Аналитика: в данном примеер видно, что одиноковые по семантики методы доавления эл-та в начало списка в деке выполняется
+значительно быстрее. Разница коллосалльная более чем в 180 раз!
+'''
+print(timeit('list_insert(n)', globals=globals(), number=10000))
+print(timeit('deque_appendleft(n)', globals=globals(), number=10000), end='\n\n')
 
