@@ -58,11 +58,17 @@ def func_5():
            f'оно появилось в массиве {sorted(lst.keys(), reverse=True)[0]} раз(а)'
 
 
+def func_6():
+    numb = max(array, key=array.count)
+    return f"Чаще всего встречается число {numb}, оно появилось в массиве {array.count(numb)} раз(а)"
+
+
 print(func_1())
 print(func_2())
 print(func_3())
 print(func_4())
 print(func_5())
+print(func_6())
 
 
 print(timeit('func_1()', globals=globals(), number=10000))
@@ -70,6 +76,7 @@ print(timeit('func_2()', globals=globals(), number=10000))
 print(timeit('func_3()', globals=globals(), number=10000))
 print(timeit('func_4()', globals=globals(), number=10000))
 print(timeit('func_5()', globals=globals(), number=10000))
+print(timeit('func_6()', globals=globals(), number=10000))
 
 '''
 Аналитика. С помощью написанных мною 3 новых функций ускорить задачу не удалось. Самым быстрым и лучшим вариантом
